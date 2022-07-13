@@ -73,15 +73,34 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/tes"> Continue </v-btn>
+          <v-btn color="primary" nuxt @click="show"> Continue </v-btn>
         </v-card-actions>
       </v-card>
+      <SnackbarGLobal />
     </v-col>
   </v-row>
 </template>
 
 <script>
+import SnackbarGLobal from "~/components/SnackbarGlobal.vue";
+
 export default {
   name: "IndexPage",
+  components: {
+    SnackbarGLobal,
+  },
+  methods: {
+    show() {
+      console.log("okee");
+      this.showSnackbar({
+        text: "sukses dek",
+        color: "error",
+        show: true,
+      });
+    },
+    showSnackbar(snackbarData) {
+      this.$store.dispatch("snackbar/showSnackbar", snackbarData);
+    },
+  },
 };
 </script>

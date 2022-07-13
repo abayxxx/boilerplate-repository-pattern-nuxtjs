@@ -1,10 +1,10 @@
 export default {
   namespaced: true,
-  state: {
+  state: () => ({
     text: '',
     color: '',
     show: false,
-  },
+  }),
   actions: {
     showSnackbar({ commit }, data) {
       return new Promise(

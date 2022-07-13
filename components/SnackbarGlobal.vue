@@ -1,13 +1,13 @@
 <template>
   <v-snackbar
-    v-model="snackbar.show"
+    v-model="$store.state.snackbar.show"
     class="snackbar-global"
     rounded="pill"
     top
-    :color="$store.getters['snackbar/color']"
+    :color="$store.state.snackbar.color"
     right
   >
-    {{ $store.getters["snackbar/text"] }}
+    {{ $store.state.snackbar.text }}
   </v-snackbar>
 </template>
 
